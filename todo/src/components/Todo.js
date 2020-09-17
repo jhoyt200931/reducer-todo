@@ -1,23 +1,13 @@
-import React from "react";
-
-import styled from "styled-components";
-
-
-const Task = styled.h4`
-box-sizing: border-box;
-text-align: center;
-`;
+import React from 'react';
 
 const Todo = (props) => {
 
-    const handleClick = e => {
-        e.preventDefault();
-        props.toggleDone(props.task.id);
-    }
-
     return(
-        <div onClick={handleClick} className={`task${props.task.completed ? "-complete" : ""}`}>
-            <Task>{props.task.name}</Task>
+        <div onClick={() => {
+            console.log('I work!')
+            props.handleClick(props.task.id)
+            }}>
+            <p style={props.task.completed ? {textDecoration: 'line-through'} : null}>{props.task.item}</p>
         </div>
     )
 }
